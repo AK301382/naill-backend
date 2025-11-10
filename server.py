@@ -27,7 +27,7 @@ db = client[os.environ['DB_NAME']]
 app = FastAPI()
 
 # CORS middleware
-cors_origins = os.environ.get('CORS_ORIGINS', 'https://naill-frontend-production.up.railway.app').split(',')
+cors_origins = os.environ.get('CORS_ORIGINS', 'https://fab-nails-demo-production.up.railway.app').split(',')
 app.add_middleware(
     CORSMiddleware,
     allow_origins=cors_origins,
