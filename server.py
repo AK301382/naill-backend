@@ -26,11 +26,12 @@ db = client[os.environ['DB_NAME']]
 # Create the main app without a prefix
 app = FastAPI()
 
-from starlette.middleware.cors import CORSMiddleware
+# CORS middleware
+cors_origins = os.environ.get('CORS_ORIGINS', 'https://naill-frontend-production.up.railway.app').split(',')
 app.add_middleware(
     CORSMiddleware,
+    allow_origins=cors_origins,
     allow_credentials=True,
-    allow_origins=os.environ.get('CORS_ORIGINS', 'naill-frontend-production.up.railway.app').split(','),
     allow_methods=["*"],
     allow_headers=["*"],
 )
